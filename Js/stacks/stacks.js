@@ -1,4 +1,3 @@
-console.log("Hello")
 class Minstack{
     constructor(){
         this.stack = []
