@@ -1,28 +1,24 @@
-function adjacent(s){
-let split = s.split("")
-let b = []
-let c = []
-split.map((data) => {
-if(!b.includes(data)){
-    b.push(data)
+let a= "3[a2[c]]"
+let split = a.split("")
+console.log(split);
+let c =[]
+let ans = split.map(data => {
+if(parseInt(data)){
+c.push(parseInt(data))
 }else{
-  if(!c.includes(data)){
-    if(data == b[b.length - 1]){
+    if(data == "[" || data == "]"){
+      c.push(data)
+    }else{
         c.push(data)
-        b.pop()
-     }else{
-         b.push(data)
-     }
-  }else{
-    if(data == b[b.length - 1]){
-        b.pop()
-     }else{
-         b.push(data)
-     }
-  }
+    }
 }
 })
-return b.join("")
+console.log(c);
+let sum = ""
+for(let i = 1; i < c.length; i+=2){
+    let d = c[i-1]
+    for(let j = 0; j < d; j++){
+        sum += c[i]
+    }
 }
-let ans = adjacent("ayyaayyzzzz")
-console.log(ans);
+console.log(sum);
